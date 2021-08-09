@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<HugsLib.UpdateFeatureDef Abstract="true" Name="UpdateFeatureBase">
+		<modNameReadable>RoomSense</modNameReadable>
+		<linkUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2566937017</linkUrl>
+	</HugsLib.UpdateFeatureDef>
+	<HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
+		<defName>RoomSense_1_0_2_0</defName>
+		<assemblyVersion>1.0.2.0</assemblyVersion>
+		<content>The original version of this mod has been updated, please use it instead. This version will remain, but unlisted and will not be updated further.
+</content>
+	</HugsLib.UpdateFeatureDef>
+</Defs>
+

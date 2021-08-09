@@ -1,4 +1,7 @@
 # Changelog for RoomSense
 
+1.0.2.0 - Added end-of-life message
+
+
 1.0.1.0 - Updated to 1.3
 
