@@ -1,0 +1,136 @@
+﻿using System.Collections.Generic;
+using UnityEngine;
+using Verse;
+
+namespace RoomSense;
+
+public class HeatMap : ICellBoolGiver
+{
+    private readonly InfoCollector infoCollector;
+    private readonly List<Color> stageIndexToColorMap = [];
+
+    private CellBoolDrawer _drawerInt;
+
+    private Color _nextColor;
+
+    public HeatMap(InfoCollector newInfoCollector)
+    {
+        infoCollector = newInfoCollector;
+
+        var maxPossibleLevel = 0;
+        foreach (var statDef in DefDatabase<RoomStatDef>.AllDefsListForReading)
+        {
+            if (statDef.isHidden)
+            {
+                continue;
+            }
+
+            if (statDef.scoreStages.Count > maxPossibleLevel)
+            {
+                maxPossibleLevel = statDef.scoreStages.Count;
+            }
+        }
+
+        // HSV gradient
+        // HSV hue 0 dgrees to 120 degrees goes from red to green.
+        // Going a little past 120 degrees at high end to get more greens.
+        var delta = .38f / maxPossibleLevel;
+        var hue = 0f;
+        for (var i = 0; i < maxPossibleLevel; i++)
+        {
+            var color = Color.HSVToRGB(hue, 1f, 1f);
+            stageIndexToColorMap.Add(color);
+            hue += delta;
+        }
+
+        /*
+        // Linear RGB gradient
+        var delta = 1f / maxPossibleLevel;
+        var color = Color.red;
+        for (var i = 0; i < maxPossibleLevel; i++)
+        {
+            _stageIndexToColorMap.Add(color);
+            color.r -= delta;
+            color.g += delta;
+        }
+        */
+    }
+
+    private CellBoolDrawer Drawer
+    {
+        get
+        {
+            if (_drawerInt != null)
+            {
+                return _drawerInt;
+            }
+
+            var map = Find.CurrentMap;
+            _drawerInt = new CellBoolDrawer(this, map.Size.x, map.Size.z,
+                RoomSenseMod.instance.Settings.HeatMapOpacity);
+
+            return _drawerInt;
+        }
+    }
+
+    public bool GetCellBool(int index)
+    {
+        var map = Find.CurrentMap;
+        if (map.fogGrid.IsFogged(index))
+        {
+            return false;
+        }
+
+        var room = map.cellIndices.IndexToCell(index).GetRoom(map);
+
+        if (room == null)
+        {
+            return false;
+        }
+
+        if (!infoCollector.RelevantRooms.TryGetValue(room, out var roomInfo))
+        {
+            return false;
+        }
+
+        var primaryStat = roomInfo.GetPrimaryStat();
+        if (primaryStat == null)
+        {
+            return false;
+        }
+
+        var stageColorIndexScaler = stageIndexToColorMap.Count / (float)primaryStat.MaxLevel;
+        var stageColorIndex = (int)(primaryStat.CurrentLevel * stageColorIndexScaler);
+        if (stageColorIndex >= stageIndexToColorMap.Count)
+        {
+            stageColorIndex = stageIndexToColorMap.Count - 1;
+        }
+
+        _nextColor = stageIndexToColorMap[stageColorIndex];
+
+        return true;
+    }
+
+    public Color GetCellExtraColor(int index)
+    {
+        return _nextColor;
+    }
+
+    public Color Color => Color.white;
+
+    public void Update()
+    {
+        Drawer.MarkForDraw();
+        if (infoCollector.IsTimeToUpdateHeatMap())
+        {
+            Drawer.SetDirty();
+        }
+
+        Drawer.CellBoolDrawerUpdate();
+    }
+
+    public void Reset()
+    {
+        _drawerInt = null;
+    }
+}

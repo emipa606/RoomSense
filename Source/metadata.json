@@ -1,0 +1,17 @@
+{
+  "Continued": true,
+  "CanAdd": "0",
+  "CanRemove": "0",
+  "LastXmlCleaning": "2025-10-15T21:59:55.913504+02:00",
+  "SocialImageSet": true,
+  "Patches": false,
+  "Defs": true,
+  "Assemblies": true,
+  "LinesOfCode": 23062,
+  "LinesOfXML": 523,
+  "SearchTags": [
+    " stats",
+    " overlays"
+  ],
+  "PreviewVersion": "1.6"
+}

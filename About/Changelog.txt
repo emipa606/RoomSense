@@ -1,0 +1,5 @@
+# Changelog for RoomSense
+
+1.6.1 - Updated for 1.6, removed HugsLib dependency
+Used DeepL to update translations for ChineseSimplified, French, German
+
