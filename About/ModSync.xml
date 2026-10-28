@@ -2,7 +2,7 @@
 <ModSyncNinjaData>
   <ID>eeef127a-5f13-4609-9e43-6c2fb41a944f</ID>
   <ModName>Room Sense (Continued)</ModName>
-  <Version>1.6.1</Version>
+  <Version>1.7.0</Version>
   <SaveBreaking>False</SaveBreaking>
   <Host name="Github">
     <Owner>emipa606</Owner>
@@ -12,8 +12,3 @@
     <Branch>master</Branch>
   </Host>
 </ModSyncNinjaData>
-
-
-
-
-

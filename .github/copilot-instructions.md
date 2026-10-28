@@ -1,40 +1,109 @@
-# GitHub Copilot Instructions for RimWorld Mod: Room Sense (Continued)
+# GitHub Copilot Instructions for Room Sense (Continued) Mod
 
 ## Mod Overview and Purpose
-
-The "Room Sense (Continued)" mod is an update of the Falconnes mod designed to provide a comprehensive display of room statistics in RimWorld. This mod offers toggleable panels that visualize relevant room stats such as beauty, cleanliness, and space through graphical meters and a colored overlay. It streamlines the environment inspection process, helping players quickly assess the significance of each stat and make informed decisions about room improvement and management.
+**Room Sense (Continued)** is an updated version of Falconnes mod that provides a faster and more intuitive way to view room statistics in the RimWorld game. It offers toggleable panels that display relevant room stats such as beauty, cleanliness, etc., using graphical meters. Additionally, it includes a colored heat map overlay that provides a visual representation of the primary stat for each room. The mod is designed to enhance the player's ability to quickly assess the condition of rooms and make informed decisions.
 
 ## Key Features and Systems
+### Toggleable Panels
+- **Graphical Meters:** Displays relevant room stats using segmented meters that correspond to different labels in the environment tool (e.g., "dull," "mediocre," "interesting").
+- **Colored Overlay:** Provides a visual heat map that highlights the primary stat for each room. The color intensity depends on the stat's value.
+- **Mouse-Over Details:** Allows players to mouse over individual panels for more detailed information about each stat.
+- **Independent Toggles:** The meter panels and heat map can be enabled/disabled independently, and their opacity can be adjusted via the Mod Settings page.
 
-- **Toggleable Panels**: Display room stats with meters that segment stats into categories (e.g., "dull", "mediocre", "interesting"). Meters' colors change to red, yellow, or green based on the stat's condition.
-- **Colored Heat Map**: Shows a color-coded overlay over relevant rooms, displaying the primary room stat or an average of applicable stats. Adjustable opacity is available through the Mod Settings page.
-- **Room Relevance**: Show stats only for relevant room roles. For example, bedrooms display all stats, while hospitals focus on space, beauty, and cleanliness.
-- **User Interface Integration**: Toggle the overlay using a newly added button in the bottom right tool dock or via a configurable keyboard shortcut (default is "=").
-- **Cross-platform Considerations**: While panels work across platforms, the colored overlay is disabled on Linux due to game code issues.
+### Heat Map
+- **Primary Stat Highlighting:** The heat map is keyed to the primary stat for each room, which is usually "Impressiveness." If "Impressiveness" is not relevant, it defaults to an average of the relevant stats.
+- **Opacity Adjustment:** Players can adjust the opacity of the heat map from the Mod Settings page.
+
+### Integration with Existing Save
+- **Compatibility:** It is safe to add or remove the mod from an existing save without causing issues.
 
 ## Coding Patterns and Conventions
-
-- **Separation of Concerns**: Organization of distinct functionalities across different files and classes, such as `GraphOverlay`, `HeatMap`, and `InfoCollector`.
-- **Modular Design**: Formulating methods that are focused on a single task, aiding in readability, maintenance, and testing.
-- **Naming Conventions**: Alignment with C# naming conventions such as Pascal case for classes and methods, aligned with RimWorld modding norms.
+- **Mod Structure:** The mod follows a standard structure with separate files for different functionalities, such as `HeatMap.cs`, `RoomSenseMod.cs`, `RoomSenseSettings.cs`, `RoomStat.cs`, and `GraphOverlay.cs`.
+- **Harmony Patching:** The mod uses Harmony to patch game methods to integrate new features without altering the original game code.
+- **XML Configuration:** XML files (`About.xml`, `KeyBindingCategories.xml`, `KeyBindings.xml`, `Version.xml`) are used for configuration and metadata.
 
 ## XML Integration
-
-XML is not directly mentioned in the project files, but it likely integrates with the RimWorld game's XML-based configuration, possibly through JSON or embedded resource files for customizable settings within `Resources.cs`.
+- **About.xml:** Contains metadata about the mod, including its dependencies.
+- **TranslationTemplate:** Includes XML definitions for key binding categories and key bindings to support localization.
+- **Version.xml:** Specifies the version of the mod.
 
 ## Harmony Patching
-
-- **Harmony Patch Usage**: Modify base game behavior with patches to classes like `MapInterface_Patch` and `PlaySettings_Patch`. Utilize patches sparingly to minimize compatibility issues.
-- **Safe Patching Practices**: Structure patches to prevent crashes, such as checking for null or invalid states before executing Harmony adjustments.
+- The mod uses Harmony to patch game methods to integrate new features without altering the original game code. This includes patches for methods related to rendering, updating, and handling user input.
 
 ## Suggestions for Copilot
+- **C# File Structure:** Suggest organizing C# files based on functionality (e.g., `HeatMap.cs` for heat map-related code, `RoomSenseMod.cs` for mod settings).
+- **Harmony Patches:** Provide examples of Harmony patches for integrating new features into the game.
+- **XML Configuration:** Assist with creating and maintaining XML files for mod configuration and metadata.
+- **Code Conventions:** Follow established coding conventions for C# and XML to ensure readability and maintainability.
+- **Error Handling:** Include error handling in code to manage potential issues, such as compatibility problems or configuration errors.
 
-To effectively utilize GitHub Copilot in developing this mod, consider:
+## Example Usage
+### C# File Structure
 
-- **Integrating Complex Logic**: Copilot can aid in forming intricate game logic scenarios, especially when determining room relevance.
-- **UI Development**: Harness Copilot to generate boilerplate code for Unity-style GUI elements and integrate them with the game's existing interface.
-- **Code Refactoring**: Suggest improvements or more optimized implementations for existing code within established classes like `GraphOverlay`.
-- **Cross-Platform Concerns**: Seek out Copilot for alternative implementations that might resolve or better handle Linux-specific challenges.
-- **Documentation Assistance**: Generate concise comments or documentation strings to ensure clear understanding across the development team.
+RoomSense/
+├── Source/
+│   ├── RoomSense/
+│   │   ├── HeatMap.cs
+│   │   ├── RoomSenseMod.cs
+│   │   ├── RoomSenseSettings.cs
+│   │   ├── RoomStat.cs
+│   │   ├── GraphOverlay.cs
+│   ├── About.xml
+│   ├── TranslationTemplate/
+│   │   ├── KeyBindingCategoryDef/
+│   │   │   ├── KeyBindingCategories.xml
+│   │   ├── KeyBindingDef/
+│   │   │   ├── KeyBindings.xml
+│   ├── Version.xml
 
-By leveraging these tools and practices, you can enhance the functionality and reliability of the "Room Sense (Continued)" mod, ensuring a seamless user experience.
+
+### Harmony Patch Example
+csharp
+using HarmonyLib;
+using Verse;
+
+namespace RoomSense
+{
+    [HarmonyPatch(typeof(EnvironmentDrawer), nameof(EnvironmentDrawer.DrawRoom))]
+    public static class HarmonyPatches
+    {
+        public static void Postfix(Room room)
+        {
+            // Custom code to draw room stats
+        }
+    }
+}
+
+
+### XML Configuration Example
+xml
+<?xml version="1.0" encoding="utf-8"?>
+<About>
+    <Name>Room Sense (Continued)</Name>
+    <Author>Falconne</Author>
+    <PackageId>Mlie.RoomSense</PackageId>
+    <Description>Update of Falconnes mod</Description>
+    <Dependencies>
+        <Dependency>brrainz.harmony</Dependency>
+        <Dependency>UnlimitedHugs.HugsLib</Dependency>
+    </Dependencies>
+</About>
+
+
+By following these guidelines, developers can contribute effectively to the Room Sense (Continued) mod, ensuring that the codebase remains clean, maintainable, and functional.
+
+## Project Solution Guidelines
+- Relevant mod XML files are included as Solution Items under the solution folder named XML, these can be read and modified from within the solution.
+- Use these in-solution XML files as the primary files for reference and modification.
+- The `.github/copilot-instructions.md` file is included in the solution under the `.github` solution folder, so it should be read/modified from within the solution instead of using paths outside the solution. Update this file once only, as it and the parent-path solution reference point to the same file in this workspace.
+- When making functional changes in this mod, ensure the documented features stay in sync with implementation; use the in-solution `.github` copy as the primary file.
+- In the solution is also a project called Assembly-CSharp, containing a read-only version of the decompiled game source, for reference and debugging purposes.
+- For any new documentation, update this copilot-instructions.md file rather than creating separate documentation files.
+
+
+## Hard rules (must follow)
+- Do NOT run commands that modify the repo (no git commit, git apply, dotnet format) unless explicitly asked.
+- Prefer minimal reads: read only the smallest code region needed (around the suspicious lines).
+- When mentioning SonarQube issues, automatically use the SonarQube MCP service to fetch and address issues instead of making inferred fixes without querying SonarQube first.
+- When mentioning the rimworld log, automatically use the Rimworld MCP service to fetch the log.
+

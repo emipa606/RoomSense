@@ -23,7 +23,7 @@ public class RoomInfo(List<RoomStat> stats, IntVec3 panelCellTopLeft, int maxSta
 
         if (Stats.Count == 1)
         {
-            primaryStat = Stats.First();
+            primaryStat = Stats[0];
             return primaryStat;
         }
 

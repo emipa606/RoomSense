@@ -4,7 +4,7 @@ using Verse;
 namespace RoomSense;
 
 [StaticConstructorOnStartup]
-public class Resources
+public static class Resources
 {
     public static readonly Texture2D Impressiveness = ContentFinder<Texture2D>.Get("Impressiveness");
     public static readonly Texture2D Wealth = ContentFinder<Texture2D>.Get("Wealth");

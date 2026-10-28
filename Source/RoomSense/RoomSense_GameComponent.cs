@@ -9,9 +9,9 @@ public class RoomSense_GameComponent : GameComponent
 
     private readonly InfoCollector _infoCollector = new();
 
-    private HeatMap _heatMap;
-
     public bool ShowOverlay;
+
+    private HeatMap _heatMap;
 
     public RoomSense_GameComponent(Game game)
     {

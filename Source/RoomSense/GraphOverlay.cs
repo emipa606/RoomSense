@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using RimWorld;
 using UnityEngine;
@@ -139,9 +140,9 @@ public class GraphOverlay
             tooltip.Append(roleLabel);
             tooltip.AppendLine();
             tooltip.AppendLine();
-            foreach (var row in tooltipRows)
+            foreach (var columns in tooltipRows.Select(row => row.Columns))
             {
-                tooltip.Append($"{row.Columns[0]}:  [{row.Columns[1]}]  ({row.Columns[2]})");
+                tooltip.Append($"{columns[0]}:  [{columns[1]}]  ({columns[2]})");
                 tooltip.AppendLine();
                 tooltip.AppendLine();
             }
@@ -150,7 +151,7 @@ public class GraphOverlay
         }
     }
 
-    private class InfoRow
+    private sealed class InfoRow
     {
         public readonly string[] Columns = new string[3];
     }

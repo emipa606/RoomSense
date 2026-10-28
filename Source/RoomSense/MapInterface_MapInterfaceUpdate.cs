@@ -8,7 +8,7 @@ namespace RoomSense;
 [HarmonyPatch(typeof(MapInterface), nameof(MapInterface.MapInterfaceUpdate))]
 public static class MapInterface_MapInterfaceUpdate
 {
-    private static void Postfix()
+    public static void Postfix()
     {
         if (Find.CurrentMap == null || WorldRendererUtility.WorldRendered)
         {

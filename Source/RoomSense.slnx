@@ -6,4 +6,16 @@
     <BuildType Name="Release" />
   </Configurations>
   <Project Path="RoomSense/RoomSense.csproj" />
+  <Folder Name="/XML/Languages/English/Keyed/">
+    <File Path="../Languages/English/Keyed/FALCRS_LanguageData.xml" />
+  </Folder>
+  <Folder Name="/XML/About/">
+    <File Path="../About/about.xml" />
+  </Folder>
+  <Folder Name="/XML/Defs/">
+    <File Path="../Defs/KeyBindings.xml" />
+  </Folder>
+  <Folder Name="/XML/Defs/KeyBindingCategoryDefs/">
+    <File Path="../Defs/KeyBindingCategoryDefs/KeyBindingCategories.xml" />
+  </Folder>
 </Solution>

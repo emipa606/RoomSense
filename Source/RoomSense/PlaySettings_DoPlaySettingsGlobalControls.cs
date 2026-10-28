@@ -7,7 +7,7 @@ namespace RoomSense;
 [HarmonyPatch(typeof(PlaySettings), "DoMapControls")]
 public static class PlaySettings_DoPlaySettingsGlobalControls
 {
-    private static void Postfix(WidgetRow row)
+    public static void Postfix(WidgetRow row)
     {
         var component = Current.Game.GetComponent<RoomSense_GameComponent>();
         if (component == null)

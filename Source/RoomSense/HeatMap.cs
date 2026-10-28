@@ -42,18 +42,6 @@ public class HeatMap : ICellBoolGiver
             stageIndexToColorMap.Add(color);
             hue += delta;
         }
-
-        /*
-        // Linear RGB gradient
-        var delta = 1f / maxPossibleLevel;
-        var color = Color.red;
-        for (var i = 0; i < maxPossibleLevel; i++)
-        {
-            _stageIndexToColorMap.Add(color);
-            color.r -= delta;
-            color.g += delta;
-        }
-        */
     }
 
     private CellBoolDrawer Drawer

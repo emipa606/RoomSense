@@ -8,6 +8,7 @@
     <li>1.4</li>
     <li>1.5</li>
     <li>1.6</li>
+    <li>1.7</li>
   </supportedVersions>
   <modDependencies>
     <li>
@@ -20,23 +21,23 @@
   <loadAfter>
     <li>brrainz.harmony</li>
   </loadAfter>
-  <description>[img]https://i.postimg.cc/1X4HT06h/Info.png[/img]
+  <description>[img]https://img.litet.net/logos/Info.png[/img]
 Update of Falconnes mod https://steamcommunity.com/sharedfiles/filedetails/?id=1355637255
 
 - Removed the HugsLib dependency
 
-[img]https://i.postimg.cc/8csH3dWV/Notice.png[/img]
+[img]https://img.litet.net/logos/Notice.png[/img]
 
 [table]
-    [tr][td][url=https://discord.gg/h5TY6DA][img]https://i.postimg.cc/T1h9SjbF/Discord.png[/img][/url][/td] [td][url=https://github.com/emipa606/RoomSense][img]https://i.postimg.cc/fykKF7X4/Github.png[/img][/url][/td]
+    [tr][td][url=https://discord.gg/h5TY6DA][img]https://img.litet.net/logos/Discord.png[/img][/url][/td] [td][url=https://github.com/emipa606/RoomSense][img]https://img.litet.net/logos/Github.png[/img][/url][/td]
     [/tr]
     [tr]
-        [td][img]https://i.postimg.cc/MHXD40RW/Safe-To-Add.png[/img][/td]
-        [td][img]https://i.postimg.cc/sx1c8PSf/Safe-To-Remove.png[/img][/td]
+        [td][img]https://img.litet.net/logos/SafeToAdd.png[/img][/td]
+        [td][img]https://img.litet.net/logos/SafeToRemove.png[/img][/td]
     [/tr]
 [/table]
 	
-[img]https://i.postimg.cc/hvhrw8xB/Original-Description.png[/img]
+[img]https://img.litet.net/logos/OriginalDescription.png[/img]
 Toggleable panels to show relevant room stats, such as beauty, cleanliness, etc, over appropriate rooms using graphical meters and optionally a coloured overlay.
 
 ==
@@ -63,12 +64,7 @@ Post any issues in the Bug Reports discussion thread or on the Ludeon forums thr
 
 Unfortunately the coloured overlay doesn't work on Linux due to an issue in the game code that prevents multi-coloured overlays working on Linux (though the panels will still work). For a workaround, see https://ludeon.com/forums/index.php?topic=38207
 
-
-Ludeon: https://ludeon.com/forums/index.php?topic=40824.0
-Source Code: https://github.com/Falconne/RoomSense
-Direct Download: https://github.com/Falconne/RoomSense/releases
-
-[img]https://i.postimg.cc/x8qR7GH9/Reporting-Issues.png[/img]
+[img]https://img.litet.net/logos/ReportingIssues.png[/img]
 [list]
 [*] See if the error persists if you just have this mod and its requirements active.
 [*] If not, try adding your other mods until it happens again.
@@ -77,6 +73,8 @@ Direct Download: https://github.com/Falconne/RoomSense/releases
 [*] Do not report errors by making a discussion-thread, I get no notification of that.
 [*] If you have the solution for a problem, please post it to the GitHub repository.
 [*] Use [url=https://github.com/RimSort/RimSort/releases/latest]RimSort[/url] to sort your mods
-[/list]</description>
-  <modVersion IgnoreIfNoMatchingField="True">1.6.1</modVersion>
+[/list] 
+
+[url=https://steamcommunity.com/sharedfiles/filedetails/changelog/3587620374][img]https://img.shields.io/github/v/release/emipa606/RoomSense?label=latest%20version&amp;style=plastic&amp;color=9f1111&amp;labelColor=black[/img][/url] | overlay, toggleable panels</description>
+  <modVersion IgnoreIfNoMatchingField="True">1.7.0</modVersion>
 </ModMetaData>

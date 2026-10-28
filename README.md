@@ -1,14 +1,14 @@
-# [Room Sense (Continued)]()
+# [Room Sense (Continued)](https://steamcommunity.com/sharedfiles/filedetails/?id=3587620374)
 
-![Image](https://i.postimg.cc/1X4HT06h/Info.png)
+![Image](https://img.litet.net/logos/Info.png)
 
 Update of Falconnes mod https://steamcommunity.com/sharedfiles/filedetails/?id=1355637255
 
 - Removed the HugsLib dependency
 
-![Image](https://i.postimg.cc/8csH3dWV/Notice.png)
+![Image](https://img.litet.net/logos/Notice.png)
 	
-![Image](https://i.postimg.cc/hvhrw8xB/Original-Description.png)
+![Image](https://img.litet.net/logos/OriginalDescription.png)
 
 Toggleable panels to show relevant room stats, such as beauty, cleanliness, etc, over appropriate rooms using graphical meters and optionally a coloured overlay.
 
@@ -36,12 +36,7 @@ Post any issues in the Bug Reports discussion thread or on the Ludeon forums thr
 
 Unfortunately the coloured overlay doesn't work on Linux due to an issue in the game code that prevents multi-coloured overlays working on Linux (though the panels will still work). For a workaround, see https://ludeon.com/forums/index.php?topic=38207
 
-
-Ludeon: https://ludeon.com/forums/index.php?topic=40824.0
-Source Code: https://github.com/Falconne/RoomSense
-Direct Download: https://github.com/Falconne/RoomSense/releases
-
-![Image](https://i.postimg.cc/x8qR7GH9/Reporting-Issues.png)
+![Image](https://img.litet.net/logos/ReportingIssues.png)
 
 
 
@@ -53,4 +48,6 @@ Direct Download: https://github.com/Falconne/RoomSense/releases
 -  If you have the solution for a problem, please post it to the GitHub repository.
 -  Use [RimSort](https://github.com/RimSort/RimSort/releases/latest) to sort your mods
 
+ 
 
+[![Image](https://img.shields.io/github/v/release/emipa606/RoomSense?label=latest%20version&style=plastic&color=9f1111&labelColor=black)](https://steamcommunity.com/sharedfiles/filedetails/changelog/3587620374) | overlay, toggleable panels
